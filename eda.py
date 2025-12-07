@@ -1,26 +1,3 @@
-"""
-===============================================================================
-CODE MODULE: EXPLORATORY DATA ANALYSIS (EDA) FOR PREDICTIVE MAINTENANCE
-===============================================================================
-Course: Statistical Learning Methods
-Assignment: Predictive Maintenance of Aircraft Engines
-Description: 
-    This script performs data loading, cleaning, feature engineering (RUL calculation),
-    and comprehensive visualization of sensor degradation patterns.
-    
-    Key steps:
-    1. Load raw CSV data.
-    2. Clean non-numeric rows and convert types.
-    3. Visualize raw time-series data (Noise & Trend).
-    4. Analyze degradation with failure threshold splitting (Healthy vs. Degrading).
-    5. Analyze Target Variable (RUL) distribution vs Sensor features.
-    6. Calculate Correlation Matrix.
-
-Author: [Votre Nom / ID Étudiant]
-Date: 2025-10-13
-===============================================================================
-"""
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -326,4 +303,5 @@ if __name__ == '__main__':
         
         print("\nAnalysis Complete.")
     else:
+
         print("\nERROR: Data frame is empty. Please check the data path and file format.")
