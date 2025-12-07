@@ -3,10 +3,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# =============================================================================
-# 1. CONFIGURATION & HYPERPARAMETERS
-# =============================================================================
-
 # --- Data File Paths ---
 # NOTE: Update paths based on the local environment
 DATA_PATH_BASE = r'C:\Users\schaf\Documents\International Exchange ICAM 5\Cranfield courses\Applied-Artificial-Intelligence-2025-26--2025-Oct-13_08-31-41-327\Statistical Learning Methods\Assignment data and codes\data'
@@ -15,11 +11,9 @@ TRAIN_FILE = 'train_selected.csv'
 # --- Feature Selection ---
 SENSOR_COLS = ['s1', 's2', 's3', 's4']
 
-# --- RUL (Remaining Useful Life) Parameters ---
 # Capping RUL prevents the model from learning from "infinite" health states
 RUL_CAP = 125 
 
-# --- Failure Definition ---
 # Cycle index assumed to mark the onset of significant degradation
 FAILURE_THRESHOLD_CYCLE = 120 
 
@@ -30,9 +24,6 @@ COLOR_FAULTY = 'coral'    # Color for degrading phase
 ALPHA_DENSITY = 0.1       # Transparency for scatter plots (handling overplotting)
 
 
-# =============================================================================
-# 2. DATA PIPELINE FUNCTIONS
-# =============================================================================
 
 def load_and_prepare_data(filepath):
     """
@@ -75,7 +66,6 @@ def load_and_prepare_data(filepath):
     df['cycle'] = df['cycle'].astype('Int64')
     df['RUL'] = df['RUL'].astype('Int64')
     
-    # --- Feature Engineering: RUL Capping ---
     # Create a capped RUL for correlation analysis later
     df['RUL_Capped'] = df['RUL'].apply(lambda x: min(x, RUL_CAP))
     
@@ -85,11 +75,6 @@ def load_and_prepare_data(filepath):
         
     print(f"SUCCESS: Data loaded. Total Rows: {len(df)}, Unique Engines: {df['engine_id'].nunique()}")
     return df
-
-
-# =============================================================================
-# 3. VISUALIZATION FUNCTIONS
-# =============================================================================
 
 def plot_correlation_matrix(df):
     """
@@ -277,9 +262,7 @@ def plot_sensor_degradation_analysis(df):
     plt.show()
 
 
-# =============================================================================
-# 4. MAIN EXECUTION FLOW
-# =============================================================================
+# MAIN EXECUTION FLOW
 
 if __name__ == '__main__':
     # Construct full file path
@@ -305,3 +288,4 @@ if __name__ == '__main__':
     else:
 
         print("\nERROR: Data frame is empty. Please check the data path and file format.")
+
