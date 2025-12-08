@@ -1,4 +1,4 @@
-This code is provided to allow to review the implementation of the regression and classification models discussed in the report.
+These codes are provided to allow to review the implementation of the data analysis, regression and classification models discussed in the report.
 
 The repository consists of the following scripts corresponding to the methodology detailed in the report:
 
